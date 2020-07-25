@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  text-align: center;
+}
+h1 {
+  font-family: "Roboto Mono", monospace;
+  font-size: 50px;
+  margin-top: 80px;
+}
+h3 {
+  font-family: "Rowdies", cursive;
+  margin: 50px auto;
+  font-size: 30px;
+}
+.board {
+  border: 7px solid black;
+  border-radius: 5px;
+  margin: 60px auto;
+  background-color: #f7f5dd;
+}
+.cell {
+  width: 80px;
+  height: 80px;
+  border: 3px solid black;
+  border-top: 0;
+  border-left: 0;
+  font-size: 30px;
+  font-weight: bold;
+}
+.thirdRow > .cell {
+  border-bottom: 0;
+}
+.thirdColumn {
+  border-right: 0;
+}
+.makeCursor {
+  cursor: pointer;
+}
+.buttonDiv {
+  visibility: hidden;
+}
+.modifyHeadingColor {
+  color: red;
+}
