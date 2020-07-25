@@ -1,10 +1,5 @@
-var playerOneSymbol = prompt("Player 1's symbol:");
-var playerTwoSymbol = prompt("Player 2's symbol:");
-while (playerOneSymbol.length != 1 || playerTwoSymbol.length != 1) {
-  alert("Symbol must be a single character");
-  playerOneSymbol = prompt("Player 1's symbol:");
-  playerTwoSymbol = prompt("Player 2's symbol:");
-}
+var playerOneSymbol;
+var playerTwoSymbol;
 var player1 = "1";
 var player2 = "2";
 var playerOneColor = "red";
@@ -12,6 +7,17 @@ var playerTwoColor = "blue";
 var currentPlayer = player1;
 var won = false;
 var draw = false;
+
+$("button").click(function () {
+  symbol = $("input[type='radio']:checked").val();
+  localStorage.setItem("symbol", symbol);
+  location.href = "board.html";
+});
+
+function setSymbols() {
+  playerOneSymbol = localStorage.getItem("symbol");
+  playerTwoSymbol = playerOneSymbol === "X" ? "O" : "X";
+}
 
 function rowCheck(symbol, row) {
   var hasWon = true;
@@ -129,6 +135,8 @@ $(document).ready(function () {
   $(".winMessageDiv").hide();
 });
 
+setSymbols();
+
 $("h3").html("Player " + currentPlayer + "'s turn");
 $(".cell").click(function () {
   if ($(this).text() == "" && !won) {
@@ -167,7 +175,7 @@ $(".cell").click(function () {
 
 $(".buttonDiv button").click(function () {
   $("body").css("background-color", "white");
-  location.reload();
+  location.href = "index.html";
 });
 
 $(".cell").hover(
